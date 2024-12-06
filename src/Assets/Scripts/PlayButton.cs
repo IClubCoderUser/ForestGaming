@@ -11,10 +11,11 @@ public class PlayButton : MonoBehaviour
         
         SceneManager.LoadScene("Demo", LoadSceneMode.Single);
 
-        void DestroyGameObject()
-        {
-            Destroy(Panel);
-        }
+        DestroyGameObject();
 
+    }
+    void DestroyGameObject()
+    {
+        Destroy(Panel);
     }
 }
