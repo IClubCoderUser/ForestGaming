@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ф : MonoBehaviour
+public class TextVisualize : MonoBehaviour
 {
     public Text _textNeft;
     public Text _textMoney;
