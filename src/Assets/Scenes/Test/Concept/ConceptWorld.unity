@@ -482,6 +482,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  _targetobject: {fileID: 0}
+  _diference: {x: 0, y: 0}
+  speed: 1
 --- !u!1001 &67447648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -620,12 +623,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80137632}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.69, y: 0.27, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.0703259, y: 2.6248689, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 217519082}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &93024036 stripped
 Transform:
@@ -1514,6 +1517,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  _targetobject: {fileID: 0}
+  _diference: {x: 0, y: 0}
+  speed: 1
 --- !u!1001 &197300071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1723,7 +1729,8 @@ Transform:
   m_LocalPosition: {x: -24.760326, y: -2.354869, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 80137634}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &217519083
@@ -1784,6 +1791,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  _targetobject: {fileID: 0}
+  _diference: {x: 0, y: 0}
+  speed: 1
 --- !u!4 &220887456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1807107215717684093, guid: 310ff07eeb762544bb0c52cdd7042dc9, type: 3}
@@ -2720,6 +2730,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  _targetobject: {fileID: 0}
+  _diference: {x: 0, y: 0}
+  speed: 1
 --- !u!4 &401281026 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7817514505594293637, guid: 124796f3da894394184d75c9f0dcb015, type: 3}
@@ -3206,6 +3219,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  _targetobject: {fileID: 0}
+  _diference: {x: 0, y: 0}
+  speed: 1
 --- !u!1001 &478003071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3609,7 +3625,7 @@ GameObject:
   - component: {fileID: 522616093}
   - component: {fileID: 522616095}
   - component: {fileID: 522616096}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: unit_2_pexota
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3741,6 +3757,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  _targetobject: {fileID: 0}
+  _diference: {x: 0, y: 0}
+  speed: 1
 --- !u!1001 &536577699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4135,12 +4154,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576913061}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.81, y: 2.87, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.6068671, y: 3.231969, z: 0}
+  m_LocalScale: {x: 1.3852333, y: 1.5921032, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 817807524}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &584127728
 PrefabInstance:
@@ -6431,7 +6450,8 @@ Transform:
   m_LocalPosition: {x: -7.9699974, y: 0.84000015, z: 0}
   m_LocalScale: {x: 0.72190005, y: 0.6281, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 576913063}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &817807525
@@ -6492,6 +6512,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  _targetobject: {fileID: 0}
+  _diference: {x: 0, y: 0}
+  speed: 1
 --- !u!4 &831472078 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7817514505594293637, guid: 124796f3da894394184d75c9f0dcb015, type: 3}
@@ -6706,6 +6729,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  _targetobject: {fileID: 0}
+  _diference: {x: 0, y: 0}
+  speed: 1
 --- !u!1001 &850786307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7710,7 +7736,8 @@ Transform:
   m_LocalPosition: {x: -13.409998, y: -6, z: 0}
   m_LocalScale: {x: 0.8383501, y: 0.656, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1180764301}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &958108435
@@ -7771,6 +7798,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  _targetobject: {fileID: 0}
+  _diference: {x: 0, y: 0}
+  speed: 1
 --- !u!1001 &958915541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8588,6 +8618,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  _targetobject: {fileID: 0}
+  _diference: {x: 0, y: 0}
+  speed: 1
 --- !u!1 &1050714794
 GameObject:
   m_ObjectHideFlags: 0
@@ -9255,12 +9288,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180764299}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.697896, y: -3.9910421, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.0422277, y: 3.0624356, z: 0}
+  m_LocalScale: {x: 1.192819, y: 1.5243902, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 958108434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1187440321
 PrefabInstance:
@@ -10324,6 +10357,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
+  _targetobject: {fileID: 0}
+  _diference: {x: 0, y: 0}
+  speed: 1
 --- !u!4 &1308324773 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1807107215717684093, guid: 310ff07eeb762544bb0c52cdd7042dc9, type: 3}
@@ -16354,12 +16390,9 @@ SceneRoots:
   - {fileID: 1440966123}
   - {fileID: 814081020}
   - {fileID: 750471422}
-  - {fileID: 1180764301}
   - {fileID: 1356105135}
   - {fileID: 1050714796}
   - {fileID: 1884019066}
-  - {fileID: 80137634}
-  - {fileID: 576913063}
   - {fileID: 1398418274}
   - {fileID: 1330098269}
   - {fileID: 842016745}
