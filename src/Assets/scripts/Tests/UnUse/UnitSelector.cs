@@ -12,11 +12,11 @@ public class UnitSelector : MonoBehaviour
 
     private bool isMoving = false;
     private Vector3 targetPosition;
-    public float speed = 1f;
+    public float speed = 10f;
 
-    private void Update()
+    public void FixedUpdate()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1) && _targetobject != null)
         {
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isMoving = true;
@@ -29,28 +29,34 @@ public class UnitSelector : MonoBehaviour
                 isMoving = false;
             }
         }
+
+        if (Input.GetMouseButton(2))
+        {
+            _targetobject = null;
+            rend.material.color = Color.white;
+        }
     }
 
     void Start()
     {
         rend = GetComponent<Renderer>();
     }
-    void FixedUpdate()
-    {
-        Vector3 diference = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log(diference);
-    }
     void OnMouseEnter()
     {
-        rend.material.color = new Color(0.9f, 0.4f, 0.4f, 0.8f);
+        rend.material.color = new Color(0.7f, 0.4f, 0.4f, 0.9f);
     }
 
     void OnMouseExit()
     {
-        rend.material.color = Color.white;
+        if (_targetobject != gameObject)
+        {
+            rend.material.color = Color.white;
+        }
+            
     }
     void OnMouseDown()
     {
+        rend.material.color = new Color(0.7f, 0.4f, 0.4f, 0.9f);
         Debug.Log(gameObject.name);
         _targetobject = gameObject;
         
