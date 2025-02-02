@@ -5,21 +5,25 @@ using UnityEngine;
 
 public class obedenit : MonoBehaviour
 {
-
+    public long neft;
+    public long monet;
+    public long valut;
     private EconomicRepository a;
- 
-    
-
+    public repositoriValut repositoriValut;
 
     public void NextStep()
     {
-        //var allNeft = GameObject.FindGameObjectsWithTag("neft");
-        //a.AddById(0, allNeft.Length * 10);
-        var arrayNeft = GameObject.FindObjectsByType<NeftBuilder>(FindObjectsSortMode.None);
-        a.AddById(0, (long)arrayNeft.Sum(x=>x.Value));
-
-        //var allMoney = GameObject.FindGameObjectsWithTag("money");
-        //a.AddById(1, allMoney.Length * 10);
+        try
+        {
+            neft = repositoriValut.Fetch(resourceId: 0).Count();
+            monet = repositoriValut.Fetch(resourceId: 1).Count();
+            valut = repositoriValut.Fetch(resourceId: 2).Count();
+        }
+        catch
+        {
+            Debug.LogError(this.name);
+            throw;
+        }
     }
 
     // Start is called before the first frame update
