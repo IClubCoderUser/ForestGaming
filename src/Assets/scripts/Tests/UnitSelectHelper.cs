@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Character))]
 public class UnitSelectHelper : MonoBehaviour
 {
     [SerializeField]
     private bool isMoving;
     private Vector3 _target;
     public float speed = 10f;
+
+    public Character Character { get; private set; }
 
     public Vector3 targetPosition
     {
@@ -24,6 +25,8 @@ public class UnitSelectHelper : MonoBehaviour
     public void Start()
     {
         SelectObjects.unit.Add(this);
+
+        Character = GetComponent<Character>();
     }
 
     public void FixedUpdate()

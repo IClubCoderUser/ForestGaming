@@ -132,12 +132,21 @@ public class SelectObjects : MonoBehaviour
 
             if (hit.collider != null && hit.collider.tag == "Player")
             {
-                var target = hit.collider.gameObject;
+                var target = hit.collider.gameObject.GetComponent<Character>();
 
-                foreach (var unit in unitSelected)
+                if (target != null)
                 {
-                    Debug.Log($"unit {unit.name} atack to {target.name}");
+                    foreach (var unit in unitSelected)
+                    {
+                        Debug.Log($"unit {unit.name} atack to {target.name}");
+
+                        var attack = unit.Character.Attack;
+
+                        target.Damage(attack);
+                    }
+
                 }
+
 
             }
         }

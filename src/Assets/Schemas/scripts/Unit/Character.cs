@@ -51,7 +51,7 @@ public class Character : MonoBehaviour
 
     }
 
-    private void Damage(float Damage)
+    public void Damage(float Damage)
     {
         if (Defense > 1)
         {
