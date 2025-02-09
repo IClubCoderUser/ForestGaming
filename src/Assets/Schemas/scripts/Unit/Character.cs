@@ -56,21 +56,15 @@ public class Character : MonoBehaviour
 
     }
 
-    private void Damage(float Damage)
+    public void Damage(float Damage)
     {
         if (defCurrent > 1)
         {
             defCurrent -= Damage;
         }
-        if (defCurrent < 1)
+        else 
         {
-            defCurrent -= Damage;
-        }
-
-        if (defbar != null)
-        {
-            var x = defCurrent / Defense;
-            defbar.size = new Vector2(x, 0.98f);
+            hpCurrernt -= Damage;
         }
 
         if (hpbar != null)
@@ -78,11 +72,19 @@ public class Character : MonoBehaviour
             var x = hpCurrernt / Hp;
             hpbar.size = new Vector2(x, 0.98f);
         }
+        if (defbar != null)
+        {
+            var x = defCurrent / Defense;
+            defbar.size = new Vector2(x, 0.98f);
+        }
 
         if (hpCurrernt < 1)
         {
- 
             Destroy(gameObject);
+        }
+        if (defCurrent < 0)
+        {
+            defCurrent = 0;
         }
     }
 }

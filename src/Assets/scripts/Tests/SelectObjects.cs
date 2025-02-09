@@ -116,7 +116,7 @@ public class SelectObjects : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -129,8 +129,7 @@ public class SelectObjects : MonoBehaviour
                     unit.targetPosition = hit.collider.transform.position;
                 }
             }
-
-            if (hit.collider != null && hit.collider.tag == "Player")
+            else if (hit.collider != null && hit.collider.tag == "Player")
             {
                 var target = hit.collider.gameObject.GetComponent<Character>();
 
@@ -138,11 +137,16 @@ public class SelectObjects : MonoBehaviour
                 {
                     foreach (var unit in unitSelected)
                     {
-                        Debug.Log($"unit {unit.name} atack to {target.name}");
+                        if (target.gameObject != unit.gameObject)
+                        {
+                            Debug.Log($"unit {unit.name} atack to {target.name}");
 
-                        var attack = unit.Character.Attack;
+                            var attack = unit.Character.Attack;
 
-                        target.Damage(attack);
+                            target.Damage(attack);
+                        }
+
+
                     }
 
                 }
