@@ -129,6 +129,17 @@ public class SelectObjects : MonoBehaviour
                     unit.targetPosition = hit.collider.transform.position;
                 }
             }
+
+            if (hit.collider != null && hit.collider.tag == "Player")
+            {
+                var target = hit.collider.gameObject;
+
+                foreach (var unit in unitSelected)
+                {
+                    Debug.Log($"unit {unit.name} atack to {target.name}");
+                }
+
+            }
         }
 
         //if (Input.GetMouseButton(2))
