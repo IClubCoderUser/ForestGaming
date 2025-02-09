@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7817514505594293637}
   - component: {fileID: 5673325255783838107}
   - component: {fileID: 3668592110895272099}
+  - component: {fileID: -2389251277739977368}
   m_Layer: 0
   m_Name: terrain_grass (28)
   m_TagString: Hexagon
@@ -99,3 +100,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScalerX: 2
   ScalerY: 3
+--- !u!60 &-2389251277739977368
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6057322547719332951}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.04, y: 1}
+      - {x: -1, y: 0.53999996}
+      - {x: -1, y: -0.52}
+      - {x: -0.04, y: -1}
+      - {x: 0.04, y: -1}
+      - {x: 1, y: -0.52}
+      - {x: 1, y: 0.52}
+      - {x: 0.089999996, y: 1}
+  m_UseDelaunayMesh: 0

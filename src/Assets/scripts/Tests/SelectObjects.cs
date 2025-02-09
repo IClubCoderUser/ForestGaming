@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class SelectObjects : MonoBehaviour
 {
 
-    public static List<GameObject> unit; // массив всех юнитов, которых мы можем выделить
-    public static List<GameObject> unitSelected; // массив выделенных юнитов
+    public static List<UnitSelectHelper> unit; // массив всех юнитов, которых мы можем выделить
+    public static List<UnitSelectHelper> unitSelected; // массив выделенных юнитов
 
     public Renderer rend;
     public GUISkin skin;
@@ -18,24 +18,19 @@ public class SelectObjects : MonoBehaviour
 
     public Vector2 _diference;
 
-    private bool isMoving = false;
-    private Vector3 targetPosition;
-    public float speed = 10f;
-
-
     void Awake()
     {
-        unit = new List<GameObject>();
-        unitSelected = new List<GameObject>();
+        unit = new();
+        unitSelected = new();
     }
 
     // проверка, добавлен объект или нет
     bool CheckUnit(GameObject unit)
     {
         bool result = false;
-        foreach (GameObject u in unitSelected)
+        foreach (var u in unitSelected)
         {
-            if (u == unit) result = true;
+            if (u.gameObject == unit) result = true;
         }
         return result;
     }
@@ -48,7 +43,6 @@ public class SelectObjects : MonoBehaviour
             {
                 // делаем что-либо с выделенными объектами
                 unitSelected[j].GetComponent<Renderer>().material.color = new Color(0.7f, 0.4f, 0.4f, 0.9f);
-                _targetobject = unitSelected[j];
 
             }
         }
@@ -111,7 +105,7 @@ public class SelectObjects : MonoBehaviour
                     {
                         unitSelected.Add(unit[j]);
                     }
-                    else if (!CheckUnit(unit[j]))
+                    else if (!CheckUnit(unit[j].gameObject))
                     {
                         unitSelected.Add(unit[j]);
                     }
@@ -120,19 +114,20 @@ public class SelectObjects : MonoBehaviour
         }
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
-        if (Input.GetMouseButton(1) && _targetobject == gameObject)
+        if (Input.GetMouseButton(1))
         {
-            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            isMoving = true;
-        }
-        if (isMoving)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.fixedDeltaTime * speed);
-            if (transform.position == targetPosition)
+            var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(pos.x, pos.y), Vector2.zero);
+
+            if (hit.collider != null && hit.collider.tag == "Hexagon")
             {
-                isMoving = false;
+                foreach (var unit in unitSelected)
+                {
+                    unit.targetPosition = hit.collider.transform.position;
+                }
             }
         }
 
