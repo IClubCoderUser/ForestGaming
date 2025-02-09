@@ -20,11 +20,16 @@ public class Character : MonoBehaviour
     public float AttackCircles = 8;
     public float Crit = 90;
     public float hpCurrernt;
+    public float defCurrent;
+
+    public SpriteRenderer hpbar;
+    public SpriteRenderer defbar;
 
     // Start is called before the first frame update
     void Start()
     {
         hpCurrernt = Hp;
+        defCurrent = Defense;
     }
 
 
@@ -51,15 +56,27 @@ public class Character : MonoBehaviour
 
     }
 
-    public void Damage(float Damage)
+    private void Damage(float Damage)
     {
-        if (Defense > 1)
+        if (defCurrent > 1)
         {
-            Defense -= Damage;
+            defCurrent -= Damage;
         }
-        if (Defense < 1)
+        if (defCurrent < 1)
         {
-            hpCurrernt -= Damage;
+            defCurrent -= Damage;
+        }
+
+        if (defbar != null)
+        {
+            var x = defCurrent / Defense;
+            defbar.size = new Vector2(x, 0.98f);
+        }
+
+        if (hpbar != null)
+        {
+            var x = hpCurrernt / Hp;
+            hpbar.size = new Vector2(x, 0.98f);
         }
 
         if (hpCurrernt < 1)
