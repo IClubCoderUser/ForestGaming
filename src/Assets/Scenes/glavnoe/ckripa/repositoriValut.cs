@@ -49,8 +49,7 @@ public class repositoriValut : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        valut = FindObjectsByType<ItemResources>(FindObjectsSortMode.None).ToList();
-
+        valut = FindObjectsOfType<ItemResources>().ToList();
         //
     }
 }
