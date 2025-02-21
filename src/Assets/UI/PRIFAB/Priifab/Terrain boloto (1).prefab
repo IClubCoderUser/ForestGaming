@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8975094183551862434}
   - component: {fileID: 7587105835015556439}
   - component: {fileID: 2086143537090826247}
+  - component: {fileID: -7080394246597155642}
+  - component: {fileID: -8565087699910131087}
   m_Layer: 0
   m_Name: Terrain boloto (1)
   m_TagString: Hexagon
@@ -138,3 +140,29 @@ PolygonCollider2D:
       - {x: 5.245, y: 2.635}
       - {x: 0.114999995, y: 5.2349997}
   m_UseDelaunayMesh: 0
+--- !u!114 &-7080394246597155642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7594056979399753662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83e9b3af9223fc4ab8fa0759b6908d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8565087699910131087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7594056979399753662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f671d11702d75c4ca17bd112603b13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScalerX: 2
+  ScalerY: 3

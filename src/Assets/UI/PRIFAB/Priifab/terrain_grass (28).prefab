@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5673325255783838107}
   - component: {fileID: 3668592110895272099}
   - component: {fileID: -2389251277739977368}
+  - component: {fileID: 6469757525688890148}
   m_Layer: 0
   m_Name: terrain_grass (28)
   m_TagString: Hexagon
@@ -153,3 +154,15 @@ PolygonCollider2D:
       - {x: 1, y: 0.52}
       - {x: 0.089999996, y: 1}
   m_UseDelaunayMesh: 0
+--- !u!114 &6469757525688890148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6057322547719332951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83e9b3af9223fc4ab8fa0759b6908d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

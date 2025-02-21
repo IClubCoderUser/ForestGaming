@@ -1,9 +1,32 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System.Helpers;
 
+using UnityEngine;
+
+
 public class SelectObjects : MonoBehaviour
 {
+	public static List<HexagonSelectHelper> terrainunit;
+
+	private HexagonSelectHelper _terrain;
+
+	public HexagonSelectHelper terrainunitSelected 
+	{
+		get => _terrain;
+		set
+		{
+			
+			if (_terrain == value) return;
+
+			if (_terrain != null)
+			{
+				_terrain.GetComponent<Renderer>().material.color = Color.white;
+			}
+
+			_terrain = value;
+			_terrain.GetComponent<Renderer>().material.color = new Color(0.7f, 0.4f, 0.4f, 0.9f);
+		}
+	}
 
 	public static List<UnitSelectHelper> unit; // массив всех юнитов, которых мы можем выделить
 	public static List<UnitSelectHelper> unitSelected; // массив выделенных юнитов
@@ -22,6 +45,7 @@ public class SelectObjects : MonoBehaviour
 	{
 		Initializer.Initialize(ref unit);
 		Initializer.Initialize(ref unitSelected);
+		Initializer.Initialize(ref terrainunit);
 	}
 
 	// проверка, добавлен объект или нет
@@ -43,7 +67,6 @@ public class SelectObjects : MonoBehaviour
 			{
 				// делаем что-либо с выделенными объектами
 				unitSelected[j].GetComponent<Renderer>().material.color = new Color(0.7f, 0.4f, 0.4f, 0.9f);
-
 			}
 		}
 	}
@@ -56,8 +79,6 @@ public class SelectObjects : MonoBehaviour
 			{
 				// отменяем то, что делали с объектоми
 				unitSelected[j].GetComponent<Renderer>().material.color = Color.white;
-				
-
 			}
 		}
 	}
@@ -116,14 +137,32 @@ public class SelectObjects : MonoBehaviour
 
 	public void Update()
 	{
-		if (Input.GetMouseButtonDown(1))
-		{
-			var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+		if (Input.GetMouseButtonDown(0))
+		{
 			RaycastHit2D hit = Physics2D.Raycast(new Vector2(pos.x, pos.y), Vector2.zero);
 
 			if (hit.collider != null && hit.collider.tag == "Hexagon")
 			{
+				Debug.Log(hit.collider.transform.position);
+
+				var wq = hit.transform.GetComponent<HexagonSelectHelper>();
+
+				if (wq != null)
+				{
+					terrainunitSelected = wq;
+				}
+			}
+		}
+
+		if (Input.GetMouseButtonDown(1))
+		{
+			RaycastHit2D hit = Physics2D.Raycast(new Vector2(pos.x, pos.y), Vector2.zero);
+
+			if (hit.collider != null && hit.collider.tag == "Hexagon")
+			{
+				Debug.Log(hit.collider.transform.position);
 				foreach (var unit in unitSelected)
 				{
 					unit.targetPosition = hit.collider.transform.position;
@@ -145,21 +184,9 @@ public class SelectObjects : MonoBehaviour
 
 							target.Damage(attack);
 						}
-
-
 					}
-
 				}
-
-
 			}
 		}
-
-		//if (Input.GetMouseButton(2))
-		//{
-		//    _targetobject = null;
-		//    rend.material.color = Color.white;
-
-		//}
 	}
 }

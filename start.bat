@@ -1,1 +1,1 @@
-start src\Assets\Scenes\SampleScene.unity
+start src\Assets\Scenes\Demo.unity
