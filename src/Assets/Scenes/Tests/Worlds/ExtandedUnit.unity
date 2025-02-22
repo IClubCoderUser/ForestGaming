@@ -11900,6 +11900,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70b5a0d1114cf25469e8b443c78f7854, type: 3}
+--- !u!1 &1966486335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5589773235341640558, guid: 67e9a34bc7ff60546871d292885935b0, type: 3}
+  m_PrefabInstance: {fileID: 1549651435487409529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1966486336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966486335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e57b3d8364a0f488501b59ad97f53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1972561833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13537,7 +13554,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2167055694644160422, guid: 07cf5faa43c8a564380e7e6f00de7616, type: 3}
   m_PrefabInstance: {fileID: 5507990011239925447}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8033389859820913316}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d474ebf2bf8a86c469e5bae8e5149020, type: 3}
@@ -13617,11 +13634,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3423886705153659740, guid: 3341d95a75373c445a5639e482b00f0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28
+      value: -26
       objectReference: {fileID: 0}
     - target: {fileID: 3423886705153659740, guid: 3341d95a75373c445a5639e482b00f0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 3423886705153659740, guid: 3341d95a75373c445a5639e482b00f0e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13658,10 +13675,27 @@ PrefabInstance:
     - target: {fileID: 6765048603191278719, guid: 3341d95a75373c445a5639e482b00f0e, type: 3}
       propertyPath: HexHelper
       value: 
-      objectReference: {fileID: 999784581}
+      objectReference: {fileID: 1108295568}
     - target: {fileID: 7353440399248037759, guid: 3341d95a75373c445a5639e482b00f0e, type: 3}
       propertyPath: m_Name
       value: TT GERMANY TIGER131 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3341d95a75373c445a5639e482b00f0e, type: 3}
+--- !u!1 &8033389859820913316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2525422320051471459, guid: 07cf5faa43c8a564380e7e6f00de7616, type: 3}
+  m_PrefabInstance: {fileID: 5507990011239925447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8033389859820913317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8033389859820913316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acf6406e064b6f4e98e59a9d1591d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

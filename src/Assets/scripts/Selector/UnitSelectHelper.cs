@@ -76,17 +76,17 @@ public class UnitSelectHelper : MonoBehaviour
 					}
 				}
 			}
-
-			//transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.fixedDeltaTime * speed);
-			//if (transform.position == targetPosition)
-			//{
-			//	isMoving = false;
-			//}
+			else
+			{ 
+				isMoving = false;
+			}
 		}
 	}
 
 	public void SetEnemy(Character enemy)
 	{
+		if(enemy == null) return;
+
 		EnemyTarget = enemy;
 
 		if(EnemyTarget != null && StepInStep < Character.Speed)
