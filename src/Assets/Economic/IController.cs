@@ -1,9 +1,13 @@
-﻿namespace Assets.Economic
-{
-	public interface IController
-	{
-		void Init();
+﻿using UnityEngine;
 
-		void StateUpdate();
+namespace Assets.Economic
+{
+	public abstract class IController : MonoBehaviour
+	{
+		public abstract int Order { get; }
+
+		public abstract void Init();
+
+		public abstract void StateUpdate();
 	}
 }

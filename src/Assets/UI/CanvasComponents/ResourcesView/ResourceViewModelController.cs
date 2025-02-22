@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class ResourceViewModelController : MonoBehaviour, IController
+public class ResourceViewModelController : IController
 {
 	public EconomicRepository EconomicRepository;
 
@@ -48,20 +48,15 @@ public class ResourceViewModelController : MonoBehaviour, IController
 		}
 	}
 
+	public override int Order => OrderUpdateController.PostUpdate;
 
-	public void Start()
-	{
-		Init();
-		StateUpdate();
-	}
-
-	public void Init()
+	public override void Init()
 	{
 		EconomicRepository = GameObject.FindObjectOfType<EconomicRepository>();
 
 		if(EconomicRepository == null)
 		{
-			Debug.LogError($"{nameof(ResourceViewModelController)}.{nameof(Start)}()");
+			Debug.LogError($"{nameof(ResourceViewModelController)}.{nameof(Init)}()");
 			return;
 		}
 
@@ -77,10 +72,14 @@ public class ResourceViewModelController : MonoBehaviour, IController
 		{
 			Valuet = GameObject.Find("ValuetUI").GetComponentInChildren<Text>();
 		}
+
+		MoneyProperty  = 0;
+		OilProperty    = 0;
+		ValuetProperty = 0;
 	}
 
 
-	public void StateUpdate()
+	public override void StateUpdate()
 	{
 		MoneyProperty  = EconomicRepository.GetById(0);
 		OilProperty    = EconomicRepository.GetById(1);
@@ -99,4 +98,10 @@ public static class StrToInt32
 
 		return int.MinValue;
 	}
+}
+
+public static class OrderUpdateController
+{
+	/// <summary>Приоритет: обновляет после.</summary>
+	public static int PostUpdate = 100;
 }
