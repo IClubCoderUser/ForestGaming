@@ -21,7 +21,7 @@ public class StepCounterController : IController
 		}
 	}
 
-	public override void Init()
+	public override bool Init()
 	{
 		if(Step == null)
 		{
@@ -29,6 +29,8 @@ public class StepCounterController : IController
 		}
 
 		Counter = 0;
+
+		return true;
 	}
 
 	public override void StateUpdate()

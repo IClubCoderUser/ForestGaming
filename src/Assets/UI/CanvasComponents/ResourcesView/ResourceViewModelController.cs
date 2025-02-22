@@ -50,14 +50,14 @@ public class ResourceViewModelController : IController
 
 	public override int Order => OrderUpdateController.PostUpdate;
 
-	public override void Init()
+	public override bool Init()
 	{
 		EconomicRepository = GameObject.FindObjectOfType<EconomicRepository>();
 
 		if(EconomicRepository == null)
 		{
 			Debug.LogError($"{nameof(ResourceViewModelController)}.{nameof(Init)}()");
-			return;
+			return false;
 		}
 
 		if(Money == null)
@@ -76,6 +76,8 @@ public class ResourceViewModelController : IController
 		MoneyProperty  = 0;
 		OilProperty    = 0;
 		ValuetProperty = 0;
+
+		return true;
 	}
 
 

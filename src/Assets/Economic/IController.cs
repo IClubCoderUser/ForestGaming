@@ -6,7 +6,7 @@ namespace Assets.Economic
 	{
 		public abstract int Order { get; }
 
-		public abstract void Init();
+		public abstract bool Init();
 
 		public abstract void StateUpdate();
 	}

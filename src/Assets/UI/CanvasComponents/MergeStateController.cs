@@ -16,7 +16,17 @@ public class MergeStateController : MonoBehaviour
 
 		foreach(var comp in Controllers)
 		{
-			comp.Init();
+			try
+			{
+				if(comp.Init())
+				{
+					Debug.Log($"Initialization {comp.GetType().Name} is complected. (Order: {comp.Order})");
+				}
+			}
+			catch(System.Exception exc)
+			{ 
+				Debug.LogError($"{comp.GetType().Name}:{exc.Message}");
+			}
 		}
 	}
 
