@@ -133,6 +133,20 @@ public class SelectObjects : MonoBehaviour
 				}
 			}
 		}
+
+		foreach(var selectUnit in unitSelected)
+		{
+			if(Camera.current != null)
+			{
+				var pos = Camera.current.WorldToScreenPoint(selectUnit.transform.position);
+				pos = new Vector2(pos.x + 20, Screen.height - pos.y + 10);
+
+				var rect = new Rect(pos, new Vector2(20, 20));
+
+				var ost = selectUnit.Character.Speed - selectUnit.StepInStep;
+				GUI.Box(rect, ost.ToString());
+			}
+		}
 	}
 
 	public void Update()

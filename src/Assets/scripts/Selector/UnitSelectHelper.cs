@@ -10,6 +10,8 @@ public class UnitSelectHelper : MonoBehaviour
 	private Vector3 _target;
 	public float speed = 10f;
 
+	public int StepInStep = 0;
+
 	public Character Character { get; private set; }
 	public HexHelper HexHelper;
 
@@ -20,10 +22,13 @@ public class UnitSelectHelper : MonoBehaviour
 		get => _target;
 		set
 		{ 
-			_target = value;
-			isMoving = true;
-
-			Trace = OptimizatorMinDistance.Optimaze(HexHelper, value, Character.Speed);
+			if(StepInStep < Character.Speed)
+			{
+				_target = value;
+				isMoving = true;
+				Trace = OptimizatorMinDistance.Optimaze(HexHelper, value, Character.Speed - StepInStep, out int step);
+				StepInStep += step;
+			}
 		}
 	}
 	
@@ -70,6 +75,18 @@ public class UnitSelectHelper : MonoBehaviour
 			//	isMoving = false;
 			//}
 		}
+	}
+
+	private void OnGUI()
+	{
+		//if(Camera.current != null)
+		//{
+		//	var pos = Camera.current.WorldToScreenPoint(transform.position);
+		//	pos = new Vector2(pos.x + 20, Screen.height - pos.y + 10);
+
+		//	var rect = new Rect(pos, new Vector2(20, 20));
+		//	GUI.Box(rect, (Character.Speed - StepInStep).ToString());
+		//}
 	}
 
 	[ContextMenu("SetOrigin")]

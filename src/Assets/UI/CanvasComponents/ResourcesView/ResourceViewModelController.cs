@@ -101,9 +101,3 @@ public static class StrToInt32
 		return int.MinValue;
 	}
 }
-
-public static class OrderUpdateController
-{
-	/// <summary>Приоритет: обновляет после.</summary>
-	public static int PostUpdate = 100;
-}

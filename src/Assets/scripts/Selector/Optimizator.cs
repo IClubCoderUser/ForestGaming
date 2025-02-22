@@ -7,12 +7,13 @@ namespace Assets.scripts.Selector
 	/// <summary>Поиск решения.</summary>
 	internal static class OptimizatorMinDistance
 	{
-		public static List<HexHelper> Optimaze(HexHelper current, Vector3 value, int maxLength = 1)
+		public static List<HexHelper> Optimaze(HexHelper current, Vector3 value, int maxLength, out int step)
 		{
 			int iter = 0;
 
 			if(maxLength == 0)
 			{
+				step = 0;
 				return null;
 			}
 
@@ -38,12 +39,14 @@ namespace Assets.scripts.Selector
 				}
 				else
 				{
+					step = iter;
 					return null;
 				}
 
 				iter++;
 			}
 
+			step = iter--;
 			return list;
 		}
 	}
