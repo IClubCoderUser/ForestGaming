@@ -23,7 +23,7 @@ public class UnitSelectHelper : MonoBehaviour
 			_target = value;
 			isMoving = true;
 
-			Trace = OptimizatorMinDistance.Optimaze(HexHelper, value);
+			Trace = OptimizatorMinDistance.Optimaze(HexHelper, value, Character.Speed);
 		}
 	}
 	
@@ -49,6 +49,12 @@ public class UnitSelectHelper : MonoBehaviour
 	{
 		if (isMoving)
 		{
+			if(Trace == null)
+			{
+				isMoving = false;
+				return;
+			}
+
 			if(Trace.Count > 0)
 			{
 				transform.position = Vector2.MoveTowards(transform.position, Trace[0].transform.position, Time.fixedDeltaTime * speed);
@@ -64,12 +70,16 @@ public class UnitSelectHelper : MonoBehaviour
 			//	isMoving = false;
 			//}
 		}
-
 	}
 
 	[ContextMenu("SetOrigin")]
 	public void SetOrigin()
 	{
 		if(HexHelper != null) transform.position = HexHelper.transform.position;
+	}
+
+	private void OnDestroy()
+	{
+		SelectObjects.unit.Remove(this);
 	}
 }

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
 using UnityEngine;
 
 namespace Assets.scripts.Selector
@@ -11,12 +7,17 @@ namespace Assets.scripts.Selector
 	/// <summary>Поиск решения.</summary>
 	internal static class OptimizatorMinDistance
 	{
-		public static List<HexHelper> Optimaze(HexHelper current, Vector3 value)
+		public static List<HexHelper> Optimaze(HexHelper current, Vector3 value, int maxLength = 1)
 		{
 			int iter = 0;
 
+			if(maxLength == 0)
+			{
+				return null;
+			}
+
 			var list = new List<HexHelper>();
-			while(current.transform.position != value && iter < 5)
+			while(current.transform.position != value && iter < maxLength)
 			{
 				float d = float.MaxValue;
 				HexHelper select = null;

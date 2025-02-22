@@ -23,6 +23,8 @@ public class Character : MonoBehaviour
 	public float hpCurrernt;
 	public float defCurrent;
 
+	public int Speed = 2;
+
 	public SpriteRenderer hpbar;
 	public SpriteRenderer defbar;
 	public FlagObject FlagsObject;
@@ -76,6 +78,15 @@ public class Character : MonoBehaviour
 			hpCurrernt -= Damage;
 		}
 
+		if(hpCurrernt < 1)
+		{
+			Destroy(gameObject);
+		}
+		if(defCurrent < 0)
+		{
+			defCurrent = 0;
+		}
+
 		if (hpbar != null)
 		{
 			var x = hpCurrernt / Hp;
@@ -85,15 +96,6 @@ public class Character : MonoBehaviour
 		{
 			var x = defCurrent / Defense;
 			defbar.size = new Vector2(x, 0.98f);
-		}
-
-		if (hpCurrernt < 1)
-		{
-			Destroy(gameObject);
-		}
-		if (defCurrent < 0)
-		{
-			defCurrent = 0;
 		}
 	}
 }
