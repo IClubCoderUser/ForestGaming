@@ -17,7 +17,9 @@ public class UnitSelectHelper : MonoBehaviour
 
 	public List<HexHelper> Trace;
 
-	public Vector3 targetPosition
+	public Character EnemyTarget;
+
+	public Vector3 TargetPosition
 	{
 		get => _target;
 		set
@@ -46,7 +48,7 @@ public class UnitSelectHelper : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogWarning($"Юнит {gameObject.name} не привязан к поверхности.");
+			Debug.LogWarning($"Юнит {gameObject.name} не привязан к карте.");
 		}
 	}
 
@@ -67,8 +69,14 @@ public class UnitSelectHelper : MonoBehaviour
 				{
 					HexHelper = Trace[0];
 					Trace.RemoveAt(0);
+
+					if(EnemyTarget != null && Trace.Count > 0)
+					{
+						RegistryDamage();
+					}
 				}
 			}
+
 			//transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.fixedDeltaTime * speed);
 			//if (transform.position == targetPosition)
 			//{
@@ -77,19 +85,36 @@ public class UnitSelectHelper : MonoBehaviour
 		}
 	}
 
-	private void OnGUI()
+	public void SetEnemy(Character enemy)
 	{
-		//if(Camera.current != null)
-		//{
-		//	var pos = Camera.current.WorldToScreenPoint(transform.position);
-		//	pos = new Vector2(pos.x + 20, Screen.height - pos.y + 10);
+		EnemyTarget = enemy;
 
-		//	var rect = new Rect(pos, new Vector2(20, 20));
-		//	GUI.Box(rect, (Character.Speed - StepInStep).ToString());
-		//}
+		if(EnemyTarget != null && StepInStep < Character.Speed)
+		{
+			if(RegistryDamage()) return;
+		}
+
+		TargetPosition = enemy.transform.position;
+		isMoving = true;
 	}
 
-	[ContextMenu("SetOrigin")]
+	private bool RegistryDamage()
+	{
+		if(Vector2.Distance(transform.position, EnemyTarget.transform.position) <= Character.AttackCircles)
+		{
+			EnemyTarget.Damage(Character.Attack);
+			EnemyTarget = null;
+			Trace.Clear();
+
+			StepInStep = Character.Speed;
+
+			return true;
+		}
+
+		return false;
+	}
+
+	[ContextMenu("SendInOrigin")]
 	public void SetOrigin()
 	{
 		if(HexHelper != null) transform.position = HexHelper.transform.position;

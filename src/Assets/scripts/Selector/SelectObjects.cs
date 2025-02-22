@@ -145,6 +145,17 @@ public class SelectObjects : MonoBehaviour
 
 				var ost = selectUnit.Character.Speed - selectUnit.StepInStep;
 				GUI.Box(rect, ost.ToString());
+
+				if(selectUnit.Trace.Count > 0)
+				{
+					foreach(var item in selectUnit.Trace)
+					{
+						var pos2 = Camera.current.WorldToScreenPoint(item.transform.position);
+						pos2 = new Vector2(pos2.x, Screen.height - pos2.y);
+						var rect2 = new Rect(pos2, new Vector2(10, 10));
+						GUI.Box(rect2, string.Empty);
+					}
+				}
 			}
 		}
 	}
@@ -179,7 +190,7 @@ public class SelectObjects : MonoBehaviour
 				Debug.Log(hit.collider.transform.position);
 				foreach (var unit in unitSelected)
 				{
-					unit.targetPosition = hit.collider.transform.position;
+					unit.TargetPosition = hit.collider.transform.position;
 				}
 			}
 			else if (hit.collider != null && hit.collider.tag == "Player")
@@ -194,9 +205,19 @@ public class SelectObjects : MonoBehaviour
 						{
 							Debug.Log($"unit {unit.name} atack to {target.name}");
 
-							var attack = unit.Character.Attack;
+							unit.SetEnemy(target);
+							//if(Vector3.Distance(target.transform.position, unit.transform.position) <= unit.Character.AttackCircles)
+							//{
+							//	unit.StepInStep = unit.Character.Speed;
 
-							target.Damage(attack);
+							//	var attack = unit.Character.Attack;
+
+							//	target.Damage(attack);
+							//}
+							//else
+							//{
+							//	unit.SetEnemy(target);
+							//}
 						}
 					}
 				}
