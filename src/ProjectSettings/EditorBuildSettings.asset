@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/ModularFirstPersonController/DemoScene/Demo.unity
     guid: f60b5d06146e3304484ada87d787b971
   - enabled: 1
-    path: Assets/Scenes/Menu/MainMenu.unity
+    path: Assets/Scenes/Daniil Inkin/MainMenu.unity
     guid: 60ac86b2ede16844a897795fecd4b4aa
   m_configObjects: {}
