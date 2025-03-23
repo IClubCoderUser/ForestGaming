@@ -2,13 +2,21 @@ using System.Collections.Generic;
 using System.Helpers;
 
 using UnityEngine;
-
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class SelectObjects : MonoBehaviour
 {
 	public static List<HexagonSelectHelper> terrainunit;
 
 	private HexagonSelectHelper _terrain;
+
+    [SerializeField] private GraphicRaycaster m_Raycaster;
+    [SerializeField] private PointerEventData m_PointerEventData;
+    [SerializeField] private EventSystem m_EventSystem;
+
+    [SerializeField]
+	private GameObject _viewCity;
 
 	public HexagonSelectHelper terrainunitSelected 
 	{
@@ -83,7 +91,24 @@ public class SelectObjects : MonoBehaviour
 		}
 	}
 
-	void OnGUI()
+    private void Start()
+    {
+        m_EventSystem = FindObjectOfType<EventSystem>();
+        m_Raycaster = FindObjectOfType<GraphicRaycaster>();
+    }
+
+	private bool CheckUi()
+	{
+        m_PointerEventData = new PointerEventData(m_EventSystem);
+        m_PointerEventData.position = Input.mousePosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        m_Raycaster.Raycast(m_PointerEventData, results);
+
+		return results.Count > 0;
+    }
+
+    void OnGUI()
 	{
 		GUI.skin = skin;
 		GUI.depth = 99;
@@ -164,22 +189,32 @@ public class SelectObjects : MonoBehaviour
 	{
 		var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+		if (CheckUi())
+		{
+			return;
+		}
+
 		if (Input.GetMouseButtonDown(0))
 		{
 			RaycastHit2D hit = Physics2D.Raycast(new Vector2(pos.x, pos.y), Vector2.zero);
 
-			if (hit.collider != null && hit.collider.tag == "Hexagon")
+            if (hit.collider != null && hit.collider.tag == "Hexagon")
 			{
-				Debug.Log(hit.collider.transform.position);
 
 				var wq = hit.transform.GetComponent<HexagonSelectHelper>();
 
 				if (wq != null)
 				{
 					terrainunitSelected = wq;
+
+					_viewCity?.SetActive(true);
 				}
 			}
-		}
+			else
+			{ 
+				_viewCity?.SetActive(false);
+            }
+        }
 
 		if (Input.GetMouseButtonDown(1))
 		{
