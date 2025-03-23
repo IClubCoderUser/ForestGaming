@@ -10,7 +10,9 @@ public class SelectObjects : MonoBehaviour
 
 	private HexagonSelectHelper _terrain;
 
-	public HexagonSelectHelper terrainunitSelected 
+    public static bool ActiveUnitSelect;
+
+    public HexagonSelectHelper terrainunitSelected 
 	{
 		get => _terrain;
 		set
@@ -43,7 +45,8 @@ public class SelectObjects : MonoBehaviour
 
 	void Awake()
 	{
-		Initializer.Initialize(ref unit);
+		ActiveUnitSelect = false;
+        Initializer.Initialize(ref unit);
 		Initializer.Initialize(ref unitSelected);
 		Initializer.Initialize(ref terrainunit);
 	}
@@ -67,8 +70,9 @@ public class SelectObjects : MonoBehaviour
 			{
 				// делаем что-либо с выделенными объектами
 				unitSelected[j].GetComponent<Renderer>().material.color = new Color(0.7f, 0.4f, 0.4f, 0.9f);
-			}
-		}
+				ActiveUnitSelect = true;
+            }
+        }
 	}
 
 	void Deselect()
@@ -79,6 +83,7 @@ public class SelectObjects : MonoBehaviour
 			{
 				// отменяем то, что делали с объектоми
 				unitSelected[j].GetComponent<Renderer>().material.color = Color.white;
+				ActiveUnitSelect = false;
 			}
 		}
 	}
