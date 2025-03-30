@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScalerX: 2
   ScalerY: 3
+  Hexs: []
+  _color: {r: 0, g: 0.05886507, b: 1, a: 1}
 --- !u!114 &4864546312788525541
 MonoBehaviour:
   m_ObjectHideFlags: 0

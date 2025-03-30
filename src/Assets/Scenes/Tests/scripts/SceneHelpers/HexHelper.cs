@@ -11,10 +11,41 @@ public class HexHelper : MonoBehaviour
 
 	public HexHelper[] Hexs;
 
+	public Color _color;
+
+    public static void SetPosition(GameObject obj, int x, int y, float scaleX = 2, float scaleY = 3, float sx = 4, float sy=3)
+    {
+        var resY = y * sy / scaleY;
+        var intResY = Mathf.Round(resY);
+
+        if (intResY % 2 == 0)
+        {
+            var scalerX = scaleX * 2;
+            var resX = x * sx / scalerX;
+            var intResX = Mathf.Round(resX);
+
+            var pos = new Vector3(intResX * scalerX, intResY * scaleY, 0);
+
+            obj.transform.position = pos;
+        }
+        else
+        {
+            var scalerX = scaleX * 2;
+            var resX = (x * sx + scaleX + 0.01f) / scalerX;
+            var intResX = Mathf.Round(resX);
+
+            var pos = new Vector3(intResX * scalerX - scaleX, intResY * scaleY, 0);
+
+            obj.transform.position = pos;
+        }
+    }
+
 
 #if UNITY_EDITOR_64
 
-	private void OnDrawGizmosSelected()
+
+
+    private void OnDrawGizmosSelected()
 	{
 		var resY = transform.position.y / ScalerY;
 		var intResY = Mathf.Round(resY);

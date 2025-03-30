@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -835,6 +835,7 @@ MonoBehaviour:
   - {fileID: 315768902}
   - {fileID: 177455693}
   - {fileID: 1620810795}
+  _color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &125045169 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3668592110895272099, guid: 70b5a0d1114cf25469e8b443c78f7854, type: 3}
@@ -1791,6 +1792,7 @@ MonoBehaviour:
   - {fileID: 1365907391}
   - {fileID: 924974650}
   - {fileID: 999784581}
+  _color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &315768900 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6057322547719332951, guid: 70b5a0d1114cf25469e8b443c78f7854, type: 3}
@@ -2372,6 +2374,7 @@ MonoBehaviour:
   - {fileID: 733417917}
   - {fileID: 315768902}
   - {fileID: 1620810795}
+  _color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &409218835 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7111596294840054588, guid: 9138830e15f80ad4bb26b8ac284f14d7, type: 3}
@@ -4680,6 +4683,7 @@ MonoBehaviour:
   - {fileID: 1620810795}
   - {fileID: 106392724}
   - {fileID: 1871997157}
+  _color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &734444990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5514,6 +5518,7 @@ GameObject:
   - component: {fileID: 834843935}
   - component: {fileID: 834843934}
   - component: {fileID: 834843933}
+  - component: {fileID: 834843936}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -5596,6 +5601,27 @@ Transform:
   - {fileID: 1983544666}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &834843936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834843932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37cc007b32918af48a33efdfdd011a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _imageName: C:\Users\Student8\Downloads\world_conqueror_3_screenshot_9f664d91 (1).jpeg
+  _width: 33
+  _height: 22
+  _presets:
+  - {fileID: 7594056979399753662, guid: 520f5720b46453a4db415afabb67348c, type: 3}
+  - {fileID: 2406796549058919087, guid: 52328f2ab73596449aff690441084a89, type: 3}
+  - {fileID: 6057322547719332951, guid: 573bb5fe4cd4d0846a3a130a778c5e25, type: 3}
+  - {fileID: 891741958033676435, guid: 484b518630855b14ca56c210223aba82, type: 3}
+  - {fileID: 312979229066921928, guid: 00c412340cd00f845adca907bc05a52f, type: 3}
 --- !u!114 &836328851 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3668592110895272099, guid: 70b5a0d1114cf25469e8b443c78f7854, type: 3}
@@ -6756,7 +6782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1045450656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9532,6 +9558,7 @@ MonoBehaviour:
   - {fileID: 115288059}
   - {fileID: 999784581}
   - {fileID: 315768902}
+  _color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1367072534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10735,6 +10762,7 @@ MonoBehaviour:
   - {fileID: 661433953}
   - {fileID: 1836588924}
   - {fileID: 1871997157}
+  _color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1556280644 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7111596294840054588, guid: 9138830e15f80ad4bb26b8ac284f14d7, type: 3}

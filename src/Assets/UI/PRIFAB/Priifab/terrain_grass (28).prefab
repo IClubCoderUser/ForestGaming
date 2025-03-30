@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScalerX: 2
   ScalerY: 3
+  Hexs: []
+  _color: {r: 0, g: 1, b: 0.18269062, a: 1}
 --- !u!60 &-2389251277739977368
 PolygonCollider2D:
   m_ObjectHideFlags: 0
