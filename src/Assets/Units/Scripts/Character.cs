@@ -22,6 +22,7 @@ public class Character : MonoBehaviour
 	public float Crit = 90;
 	public float hpCurrernt;
 	public float defCurrent;
+	public float attackCurrent;
 
 	public int Speed = 2;
 
@@ -36,6 +37,7 @@ public class Character : MonoBehaviour
 	{
 		hpCurrernt = Hp;
 		defCurrent = Defense;
+		attackCurrent = Attack;
 
 		if(FlagsObject != null)
 		{

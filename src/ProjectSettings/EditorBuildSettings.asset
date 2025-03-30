@@ -8,13 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/ModularFirstPersonController/DemoScene/Demo.unity
     guid: f60b5d06146e3304484ada87d787b971
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu/MainMenu.unity
     guid: 60ac86b2ede16844a897795fecd4b4aa
   - enabled: 1
     path: Assets/Scenes/Tests/Worlds/ExtandedUnit.unity
     guid: 5d479f99fb0da70409f67c95805907a2
-  - enabled: 1
-    path: Assets/Scenes/Info/InformationForUnits.unity
-    guid: e256d7dadf3fae44c98bcb2c2de41b29
   m_configObjects: {}

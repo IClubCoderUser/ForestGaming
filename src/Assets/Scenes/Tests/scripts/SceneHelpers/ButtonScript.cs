@@ -20,15 +20,15 @@ public class ButtonScript : MonoBehaviour
             _isActive = SelectObjects.ActiveUnitSelect;
         }
     }
-    public void ChangeInfoScene()
-    {
-        SceneManager.LoadScene("InformationForUnits");
-    }
+    //public void ChangeInfoScene()
+    //{
+    //    SceneManager.LoadScene("InformationForUnits", LoadSceneMode.Additive);
+    //}
 
-    public void ChangeGameScene()
-    {
-        SceneManager.LoadScene("ExtandedUnit");
-    }
+    //public void ChangeGameScene()
+    //{
+    //    SceneManager.UnloadSceneAsync("InformationForUnits");
+    //}
 }
 // ExtandedUnit
 // InformationForUnits

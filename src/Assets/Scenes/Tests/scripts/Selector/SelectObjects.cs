@@ -13,7 +13,8 @@ public class SelectObjects : MonoBehaviour
 
     public static bool ActiveUnitSelect;
 
-    public HexagonSelectHelper terrainunitSelected 
+	public UnitSelectHelper SelectedObject; 
+
     [SerializeField] private GraphicRaycaster m_Raycaster;
     [SerializeField] private PointerEventData m_PointerEventData;
     [SerializeField] private EventSystem m_EventSystem;
@@ -55,6 +56,7 @@ public class SelectObjects : MonoBehaviour
 	void Awake()
 	{
 		ActiveUnitSelect = false;
+		SelectedObject = null;
         Initializer.Initialize(ref unit);
 		Initializer.Initialize(ref unitSelected);
 		Initializer.Initialize(ref terrainunit);
@@ -80,6 +82,7 @@ public class SelectObjects : MonoBehaviour
 				// ������ ���-���� � ����������� ���������
 				unitSelected[j].GetComponent<Renderer>().material.color = new Color(0.7f, 0.4f, 0.4f, 0.9f);
 				ActiveUnitSelect = true;
+				SelectedObject = unitSelected[j];
             }
         }
 	}
@@ -93,6 +96,7 @@ public class SelectObjects : MonoBehaviour
 				// �������� ��, ��� ������ � ���������
 				unitSelected[j].GetComponent<Renderer>().material.color = Color.white;
 				ActiveUnitSelect = false;
+				SelectedObject = null;
 			}
 		}
 	}
@@ -119,7 +123,12 @@ public class SelectObjects : MonoBehaviour
 		GUI.skin = skin;
 		GUI.depth = 99;
 
-		if (Input.GetMouseButtonDown(0))
+        if (CheckUi())
+        {
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0))
 		{
 			Deselect();
 			startPos = Input.mousePosition;
