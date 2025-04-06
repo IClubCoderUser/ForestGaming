@@ -102,7 +102,7 @@ MonoBehaviour:
   ScalerX: 2
   ScalerY: 3
   Hexs: []
-  _color: {r: 0.3433962, g: 0.0019437239, b: 0.0019437239, a: 1}
+  _color: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &-395198026092024265
 MonoBehaviour:
   m_ObjectHideFlags: 0

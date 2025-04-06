@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
@@ -65,6 +66,7 @@ public class ioadiocatioon : MonoBehaviour
     private void Generate(Texture2D texture)
     {
         var presets = _presets.Select(x => x.GetComponent<HexHelper>());
+        var list = new List<GameObject>();
 
         for (int i = 0; i < texture.width; i++)
         {
@@ -72,17 +74,37 @@ public class ioadiocatioon : MonoBehaviour
             {
                 var pixel = texture.GetPixel(i, j);
 
-                var min = presets.Min(x => Mathf.Sqrt(Mathf.Pow(x._color.r - pixel.r, 2) + Mathf.Pow(x._color.g - pixel.g, 2) + Mathf.Pow(x._color.b - pixel.b, 2)));
-                var item = presets.FirstOrDefault(x => Mathf.Sqrt(Mathf.Pow(x._color.r - pixel.r, 2) + Mathf.Pow(x._color.g - pixel.g, 2) + Mathf.Pow(x._color.b - pixel.b, 2)) == min);
+                float min = float.MaxValue;
+                HexHelper item = null;
+
+                foreach (var preset in presets)
+                {
+                    if(preset == null) continue;
+
+                    var currentMin = Mathf.Sqrt(
+                        Mathf.Pow(preset._color.r - pixel.r, 2) + 
+                        Mathf.Pow(preset._color.g - pixel.g, 2) + 
+                        Mathf.Pow(preset._color.b - pixel.b, 2));
+
+                    if(currentMin < min) 
+                    { 
+                        min = currentMin; 
+                        item = preset;
+                    }
+                }
 
                 var obj = _presets.FirstOrDefault(x => x.GetComponent<HexHelper>() == item);
 
                 var g = GameObject.Instantiate(obj) as GameObject;
                 g.name = $"{i} : {j}";
 
+                list.Add(g);
+
                 HexHelper.SetPosition(g, i, j, 2, 3);
             }
         }
+
+        list.ForEach(x => x.GetComponent<HexHelper>().Connect());
     }
 
     private void CreateOnScene(Texture2D texture)
