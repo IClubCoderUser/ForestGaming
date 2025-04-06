@@ -10,6 +10,8 @@ public class InformationViewer : MonoBehaviour
     [SerializeField] private Text _hpText;
     [SerializeField] private Text _defText;
     [SerializeField] private Text _attackText;
+    [SerializeField] private Text _unitName;
+    [SerializeField] private Text _unitDecs;
 
 
     public float hp
@@ -48,10 +50,15 @@ public class InformationViewer : MonoBehaviour
         
     }
 
+    /// <summary></summary>
+    /// <remarks>from ui</remarks>
     public void CheckInfo()
     {
         var SelectObject = GameObject.Find("Selector").GetComponent<SelectObjects>().SelectedObject;
-        Character = GameObject.Find(SelectObject.ToString()).GetComponent<Character>();
+        Debug.Log($"Выбранный объект: {SelectObject}");
+        Character = SelectObject.Character;
+        _unitName.text = SelectObject.Character.objectname;
+        _unitDecs.text = SelectObject.Character.description;
 
         hp = Character.hpCurrernt;
         def = Character.defCurrent;

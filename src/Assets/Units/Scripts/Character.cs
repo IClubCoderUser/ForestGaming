@@ -9,6 +9,10 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    /// <summary>Описание.</summary>
+    public string description;
+	/// <summary>Имя объекта.</summary>
+	public string objectname;
 	/// <summary>Это макс хп персонажа.</summary>
 	public float Hp = 150;
 	/// <summary>Это броня персонажа.</summary>
