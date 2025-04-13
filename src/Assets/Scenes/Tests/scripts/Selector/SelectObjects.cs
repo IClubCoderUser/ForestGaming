@@ -11,6 +11,10 @@ public class SelectObjects : MonoBehaviour
 
 	private HexagonSelectHelper _terrain;
 
+    public static bool ActiveUnitSelect;
+
+	public UnitSelectHelper SelectedObject; 
+
     [SerializeField] private GraphicRaycaster m_Raycaster;
     [SerializeField] private PointerEventData m_PointerEventData;
     [SerializeField] private EventSystem m_EventSystem;
@@ -36,8 +40,8 @@ public class SelectObjects : MonoBehaviour
 		}
 	}
 
-	public static List<UnitSelectHelper> unit; // массив всех юнитов, которых мы можем выделить
-	public static List<UnitSelectHelper> unitSelected; // массив выделенных юнитов
+	public static List<UnitSelectHelper> unit; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	public static List<UnitSelectHelper> unitSelected; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
 	public Renderer rend;
 	public GUISkin skin;
@@ -51,12 +55,14 @@ public class SelectObjects : MonoBehaviour
 
 	void Awake()
 	{
-		Initializer.Initialize(ref unit);
+		ActiveUnitSelect = false;
+		SelectedObject = null;
+        Initializer.Initialize(ref unit);
 		Initializer.Initialize(ref unitSelected);
 		Initializer.Initialize(ref terrainunit);
 	}
 
-	// проверка, добавлен объект или нет
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ
 	bool CheckUnit(GameObject unit)
 	{
 		bool result = false;
@@ -73,10 +79,12 @@ public class SelectObjects : MonoBehaviour
 		{
 			for (int j = 0; j < unitSelected.Count; j++)
 			{
-				// делаем что-либо с выделенными объектами
+				// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 				unitSelected[j].GetComponent<Renderer>().material.color = new Color(0.7f, 0.4f, 0.4f, 0.9f);
-			}
-		}
+				ActiveUnitSelect = true;
+				SelectedObject = unitSelected[j];
+            }
+        }
 	}
 
 	void Deselect()
@@ -85,8 +93,10 @@ public class SelectObjects : MonoBehaviour
 		{
 			for (int j = 0; j < unitSelected.Count; j++)
 			{
-				// отменяем то, что делали с объектоми
+				// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 				unitSelected[j].GetComponent<Renderer>().material.color = Color.white;
+				ActiveUnitSelect = false;
+				SelectedObject = null;
 			}
 		}
 	}
@@ -113,7 +123,12 @@ public class SelectObjects : MonoBehaviour
 		GUI.skin = skin;
 		GUI.depth = 99;
 
-		if (Input.GetMouseButtonDown(0))
+        if (CheckUi())
+        {
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0))
 		{
 			Deselect();
 			startPos = Input.mousePosition;
@@ -142,10 +157,10 @@ public class SelectObjects : MonoBehaviour
 
 			for (int j = 0; j < unit.Count; j++)
 			{
-				// трансформируем позицию объекта из мирового пространства, в пространство экрана
+				// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 				Vector2 tmp = new Vector2(Camera.main.WorldToScreenPoint(unit[j].transform.position).x, Screen.height - Camera.main.WorldToScreenPoint(unit[j].transform.position).y);
 
-				if (rect.Contains(tmp)) // проверка, находится-ли текущий объект в рамке
+				if (rect.Contains(tmp)) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ
 				{
 					if (unitSelected.Count == 0)
 					{
