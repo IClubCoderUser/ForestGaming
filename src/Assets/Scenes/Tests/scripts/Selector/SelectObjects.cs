@@ -222,12 +222,12 @@ public class SelectObjects : MonoBehaviour
 				{
 					terrainunitSelected = wq;
 
-					_viewCity?.SetActive(true);
+					//_viewCity?.SetActive(true);
 				}
 			}
 			else
 			{ 
-				_viewCity?.SetActive(false);
+				//_viewCity?.SetActive(false);
             }
         }
 

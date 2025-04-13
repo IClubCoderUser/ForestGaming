@@ -12,6 +12,11 @@ public class InformationViewer : MonoBehaviour
     [SerializeField] private Text _attackText;
     [SerializeField] private Text _unitName;
     [SerializeField] private Text _unitDecs;
+    [SerializeField] private Image _tankSprite;
+
+
+    public SpriteRenderer m_SpriteRenderer;
+    public Sprite m_Sprite;
 
 
     public float hp
@@ -41,7 +46,7 @@ public class InformationViewer : MonoBehaviour
 
     void Start()
     {
-        
+  
     }
 
     // Update is called once per frame
@@ -51,14 +56,21 @@ public class InformationViewer : MonoBehaviour
     }
 
     /// <summary></summary>
-    /// <remarks>from ui</remarks>
+    /// <remarks>From UI</remarks>
     public void CheckInfo()
     {
         var SelectObject = GameObject.Find("Selector").GetComponent<SelectObjects>().SelectedObject;
+        var SelectGameObject = SelectObject.gameObject;
         Debug.Log($"Выбранный объект: {SelectObject}");
         Character = SelectObject.Character;
         _unitName.text = SelectObject.Character.objectname;
         _unitDecs.text = SelectObject.Character.description;
+
+        m_SpriteRenderer = SelectGameObject.GetComponent<SpriteRenderer>();
+        m_Sprite = SelectGameObject.GetComponent<SpriteRenderer>().sprite;
+        //Debug.Log($"Texture 1 : {m_SpriteRenderer.sprite.texture}");
+
+        _tankSprite.sprite = m_Sprite;
 
         hp = Character.hpCurrernt;
         def = Character.defCurrent;
