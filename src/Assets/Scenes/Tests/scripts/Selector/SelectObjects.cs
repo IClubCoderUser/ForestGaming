@@ -57,6 +57,7 @@ public class SelectObjects : MonoBehaviour
 	{
 		ActiveUnitSelect = false;
 		SelectedObject = null;
+
         Initializer.Initialize(ref unit);
 		Initializer.Initialize(ref unitSelected);
 		Initializer.Initialize(ref terrainunit);
