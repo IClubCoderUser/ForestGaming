@@ -18,6 +18,8 @@ public class ioadiocatioon : MonoBehaviour
     [Header("Высота")]
     public int _height;
 
+    public List<GameObject> list_hex;
+
     public GameObject[] _presets;
 
     [ContextMenu("generate")]
@@ -62,6 +64,8 @@ public class ioadiocatioon : MonoBehaviour
             //CreateOnScene(texture);
         }
     }
+
+
              
     private void Generate(Texture2D texture)
     {
@@ -105,6 +109,8 @@ public class ioadiocatioon : MonoBehaviour
         }
 
         list.ForEach(x => x.GetComponent<HexHelper>().Connect());
+
+        list_hex = list;
     }
 
     private void CreateOnScene(Texture2D texture)
