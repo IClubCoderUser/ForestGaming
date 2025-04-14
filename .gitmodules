@@ -1,0 +1,9 @@
+[submodule "src/Assets/Core"]
+	path = src/Assets/Core
+	url = https://github.com/IClubCoderUser/ForestGameCore.git
+[submodule "src/Assets/UI/Resources"]
+	path = src/Assets/UI/Resources
+	url = https://github.com/IClubCoderUser/ForestGameResources.git
+[submodule "src/Assets/UI/Assets"]
+	path = src/Assets/UI/Assets
+	url = https://github.com/IClubCoderUser/ForestGameAssets.git
