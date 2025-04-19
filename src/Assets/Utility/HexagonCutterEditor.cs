@@ -1,7 +1,6 @@
 using UnityEditor;
 using UnityEngine;
 using System.IO;
-using UnityEngine.Networking.Types;
 
 public class HexagonCutterEditor : EditorWindow
 {
